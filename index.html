@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fincas Campestres en Anapoima | Bellavista & La Esmeralda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --verde: #1a4d2e;
+    --verde-claro: #4a7c59;
+    --verde-suave: #e8f0eb;
+    --dorado: #c9973a;
+    --dorado-claro: #f0d9a8;
+    --blanco: #fafaf7;
+    --gris: #6b7280;
+    --negro: #1a1a1a;
+    --crema: #f5f0e8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blanco);
+    color: var(--negro);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(26, 77, 46, 0.92);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--dorado-claro);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--dorado-claro); }
+
+  .nav-cta {
+    background: var(--dorado);
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 500 !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 6rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(26,77,46,0.75) 70%, rgba(26,77,46,0.95) 100%);
+    z-index: 1;
+  }
+
+  .hero-bg video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--dorado);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--dorado-claro);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--dorado);
+    color: white;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #b5852e; transform: translateY(-1px); }
+
+  .btn-ghost {
+    border: 1.5px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+    display: flex;
+    gap: 2.5rem;
+    z-index: 2;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--dorado-claro);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* SECCIÓN DISTANCIA */
+  .distancia {
+    background: var(--crema);
+    padding: 3rem;
+    text-align: center;
+    border-bottom: 1px solid #e0d8cc;
+  }
+
+  .distancia-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .dist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .dist-icon {
+    width: 40px; height: 40px;
+    background: var(--verde);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+  }
+
+  .dist-text strong {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--verde);
+  }
+
+  .dist-text span {
+    font-size: 0.8rem;
+    color: var(--gris);
+  }
+
+  /* FINCAS */
+  .fincas {
+    padding: 7rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--verde);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    color: var(--gris);
+    font-size: 1rem;
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 4rem;
+  }
+
+  .fincas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .fincas-grid { grid-template-columns: 1fr; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 1.5rem; }
+    .hero-stats { right: 1.5rem; gap: 1.5rem; }
+    .fincas { padding: 5rem 1.5rem; }
+    .distancia { padding: 2rem 1.5rem; }
+    .amenidades { padding: 5rem 1.5rem; }
+    .como-llegar { padding: 5rem 1.5rem; }
+    .contacto-section { padding: 5rem 1.5rem; }
+    .footer { padding: 3rem 1.5rem; }
+    .distancia-inner { gap: 1.5rem; }
+    .precios-grid { grid-template-columns: 1fr; }
+    .amenidades-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .finca-card {
+    border: 1px solid #e0d8cc;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .finca-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(26,77,46,0.12);
+  }
+
+  .finca-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .finca-body {
+    padding: 2rem;
+  }
+
+  .finca-tag {
+    display: inline-block;
+    background: var(--verde-suave);
+    color: var(--verde);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .finca-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--verde);
+    margin-bottom: 0.5rem;
+  }
+
+  .finca-desc {
+    color: var(--gris);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .finca-specs {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .spec {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--verde);
+  }
+
+  .spec-icon {
+    font-size: 1rem;
+  }
+
+  .finca-precio {
+    background: var(--crema);
+    border-radius: 4px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .precio-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    font-size: 0.88rem;
+  }
+
+  .precio-row:not(:last-child) {
+    border-bottom: 1px solid #e0d8cc;
+  }
+
+  .precio-label { color: var(--gris); }
+  .precio-val { font-weight: 500; color: var(--verde); }
+  .precio-nota { font-size: 0.75rem; color: var(--dorado); font-style: italic; }
+
+  .finca-amenidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .amenidad-tag {
+    background: var(--verde-suave);
+    color: var(--verde-claro);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 2px;
+  }
+
+  .btn-reservar {
+    display: block;
+    width: 100%;
+    background: var(--verde);
+    color: white;
+    text-align: center;
+    padding: 0.9rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn-reservar:hover { background: var(--verde-claro); }
+
+  /* HABITACIONES */
+  .habitaciones {
+    background: var(--verde);
+    padding: 6rem 3rem;
+    color: white;
+  }
+
+  .habitaciones-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .habitaciones .section-title { color: var(--dorado-claro); }
+  .habitaciones .section-sub { color: rgba(255,255,255,0.7); }
+
+  .hab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .hab-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .hab-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .hab-nombre { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado-claro); margin-bottom: 0.5rem; }
+  .hab-cap { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
+  /* PRECIOS */
+  .precios-section {
+    padding: 7rem 3rem;
+    background: var(--crema);
+  }
+
+  .precios-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .precios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .precio-card {
+    background: white;
+    border: 1px solid #e0d8cc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .precio-header {
+    background: var(--verde);
+    padding: 1.5rem 2rem;
+  }
+
+  .precio-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--dorado-claro);
+    margin-bottom: 0.25rem;
+  }
+
+  .precio-header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+
+  .precio-body { padding: 1.75rem 2rem; }
+
+  .precio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0ebe0;
+  }
+
+  .precio-item:last-child { border-bottom: none; }
+
+  .pi-label { font-size: 0.85rem; color: var(--gris); }
+  .pi-detail { font-size: 0.75rem; color: var(--dorado); margin-top: 0.2rem; font-style: italic; }
+  .pi-valor { font-size: 1.2rem; font-family: 'Playfair Display', serif; color: var(--verde); font-weight: 700; }
+  .pi-pp { font-size: 0.7rem; color: var(--gris); text-align: right; margin-top: 0.2rem; }
+
+  .notas-precio {
+    margin-top: 2rem;
+    background: white;
+    border: 1px solid #e0d8cc;
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+  }
+
+  .nota-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    font-size: 0.88rem;
+    color: var(--gris);
+  }
+
+  .nota-dot {
+    width: 6px; height: 6px;
+    background: var(--dorado);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  /* AMENIDADES */
+  .amenidades {
+    padding: 7rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .amenidades-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 900px) {
+    .amenidades-grid { grid-template-columns: repeat(3, 1fr); }
+    .fincas-grid { grid-template-columns: 1fr; }
+  }
+
+  .amenidad-card {
+    background: var(--verde-suave);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .amenidad-card:hover {
+    background: var(--verde);
+    transform: translateY(-2px);
+  }
+
+  .amenidad-card:hover .am-icon { color: var(--dorado-claro); }
+  .amenidad-card:hover .am-label { color: rgba(255,255,255,0.85); }
+
+  .am-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--verde);
+    transition: color 0.2s;
+  }
+
+  .am-label {
+    font-size: 0.8rem;
+    color: var(--verde-claro);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  /* COMO LLEGAR */
+  .como-llegar {
+    padding: 7rem 3rem;
+    background: var(--crema);
+  }
+
+  .llegar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .llegar-inner { grid-template-columns: 1fr; }
+    .precios-grid { grid-template-columns: 1fr; }
+    .amenidades-grid { grid-template-columns: repeat(2,1fr); }
+  }
+
+  .ruta-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0d8cc;
+  }
+
+  .ruta-num {
+    width: 32px; height: 32px;
+    background: var(--verde);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .ruta-info strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--negro);
+    margin-bottom: 0.2rem;
+  }
+
+  .ruta-info span {
+    font-size: 0.8rem;
+    color: var(--gris);
+  }
+
+  .mapa-placeholder {
+    background: var(--verde-suave);
+    border-radius: 4px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid #c8d8cc;
+  }
+
+  .mapa-icon { font-size: 3rem; color: var(--verde); }
+  .mapa-text { font-size: 0.9rem; color: var(--verde-claro); }
+  .mapa-link {
+    background: var(--verde);
+    color: white;
+    padding: 0.6rem 1.25rem;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* CONTACTO */
+  .contacto-section {
+    padding: 7rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .contacto-grid { grid-template-columns: 1fr; }
+  }
+
+  .contacto-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--verde);
+    margin-bottom: 1rem;
+  }
+
+  .contacto-info p {
+    color: var(--gris);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .contacto-metodo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--verde-suave);
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .contacto-metodo:hover { background: #d0e0d5; }
+
+  .cm-icon {
+    width: 40px; height: 40px;
+    background: var(--verde);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .cm-label { font-size: 0.75rem; color: var(--gris); display: block; }
+  .cm-valor { font-size: 0.9rem; font-weight: 500; color: var(--verde); display: block; }
+
+  /* FORMULARIO */
+  .form-reserva {
+    background: white;
+    border: 1px solid #e0d8cc;
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .form-reserva h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--verde);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gris);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #e0d8cc;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--negro);
+    background: var(--blanco);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--verde-claro);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .btn-form {
+    width: 100%;
+    background: var(--dorado);
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .btn-form:hover { background: #b5852e; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--negro);
+    color: rgba(255,255,255,0.65);
+    padding: 4rem 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--dorado-claro);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--dorado-claro); }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* WHATSAPP FLOTANTE */
+  .wa-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: white;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    z-index: 200;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .wa-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+  }
+
+  /* SCROLL ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Fincas Anapoima</div>
+  <ul class="nav-links">
+    <li><a href="#fincas">Nuestras Fincas</a></li>
+    <li><a href="#precios">Tarifas</a></li>
+    <li><a href="#amenidades">Amenidades</a></li>
+    <li><a href="#llegar">Cómo llegar</a></li>
+    <li><a href="#contacto" class="nav-cta">Reservar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline>
+      <source src="finca-hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge">🌿 Anapoima, Cundinamarca</span>
+    <h1>Tu escapada<br>perfecta al <em>calor</em><br>del campo</h1>
+    <p class="hero-sub">A solo 2 horas de Bogotá, descansa en nuestras fincas campestres con piscina privada, jacuzzi y todo para una experiencia inolvidable.</p>
+    <div class="hero-btns">
+      <a href="#fincas" class="btn-primary">Ver las fincas</a>
+      <a href="#contacto" class="btn-ghost">Consultar disponibilidad</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">22</span>
+      <span class="stat-label">Personas máx.</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Fincas disponibles</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2h</span>
+      <span class="stat-label">Desde Bogotá</span>
+    </div>
+  </div>
+</section>
+
+<!-- DISTANCIA -->
+<div class="distancia">
+  <div class="distancia-inner">
+    <div class="dist-item">
+      <div class="dist-icon">🚗</div>
+      <div class="dist-text">
+        <strong>~2 horas desde Bogotá</strong>
+        <span>Por la vía Bogotá–La Mesa–Anapoima</span>
+      </div>
+    </div>
+    <div class="dist-item">
+      <div class="dist-icon">☀️</div>
+      <div class="dist-text">
+        <strong>Clima cálido todo el año</strong>
+        <span>Entre 28°C y 35°C promedio</span>
+      </div>
+    </div>
+    <div class="dist-item">
+      <div class="dist-icon">🛡️</div>
+      <div class="dist-text">
+        <strong>Acceso fácil y seguro</strong>
+        <span>Vía pavimentada hasta la finca</span>
+      </div>
+    </div>
+    <div class="dist-item">
+      <div class="dist-icon">🅿️</div>
+      <div class="dist-text">
+        <strong>Parqueadero privado</strong>
+        <span>Hasta 8 vehículos sin costo</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINCAS -->
+<section class="fincas" id="fincas">
+  <div class="section-label">Nuestras propiedades</div>
+  <h2 class="section-title">Dos fincas,<br>una experiencia única</h2>
+  <p class="section-sub">Cada finca está equipada para que tú y tu grupo disfruten al máximo. Piscina privada, jacuzzi y todo lo que necesitan para descansar.</p>
+
+  <div class="fincas-grid">
+
+    <!-- BELLAVISTA -->
+    <div class="finca-card fade-up">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Finca Bellavista" class="finca-img">
+      <div class="finca-body">
+        <span class="finca-tag">Disponible</span>
+        <h3 class="finca-nombre">Bellavista</h3>
+        <p class="finca-desc">Finca campestre de dos pisos con vista privilegiada, jardines amplios y piscina privada con jacuzzi. Perfecta para grupos que buscan confort y naturaleza.</p>
+
+        <div class="finca-specs">
+          <span class="spec"><span class="spec-icon">🏠</span> 4 habitaciones</span>
+          <span class="spec"><span class="spec-icon">🚿</span> 5 baños</span>
+          <span class="spec"><span class="spec-icon">👥</span> 12–22 personas</span>
+          <span class="spec"><span class="spec-icon">🏊</span> Piscina + Jacuzzi</span>
+        </div>
+
+        <div class="finca-precio">
+          <div class="precio-row">
+            <span class="precio-label">Día no festivo</span>
+            <div style="text-align:right">
+              <span class="precio-val">$65.000 / persona</span>
+              <div class="precio-nota">Mínimo 12 personas · 1 noche</div>
+            </div>
+          </div>
+          <div class="precio-row">
+            <span class="precio-label">Día festivo</span>
+            <div style="text-align:right">
+              <span class="precio-val">$75.000 / persona</span>
+              <div class="precio-nota">Mínimo 12 personas · 2 noches</div>
+            </div>
+          </div>
+          <div class="precio-row">
+            <span class="precio-label">Aseo (tarifa única)</span>
+            <span class="precio-val">$100.000</span>
+          </div>
+          <div class="precio-row">
+            <span class="precio-label">Depósito reembolsable</span>
+            <span class="precio-val">$200.000</span>
+          </div>
+        </div>
+
+        <div class="finca-amenidades">
+          <span class="amenidad-tag">🏊 Piscina privada</span>
+          <span class="amenidad-tag">💦 Jacuzzi</span>
+          <span class="amenidad-tag">🍳 2 cocinas</span>
+          <span class="amenidad-tag">🔥 BBQ</span>
+          <span class="amenidad-tag">🌿 Zonas verdes</span>
+          <span class="amenidad-tag">🎲 Juegos de mesa</span>
+          <span class="amenidad-tag">📶 WiFi</span>
+          <span class="amenidad-tag">📺 TV</span>
+          <span class="amenidad-tag">🅿️ Parqueadero 8 carros</span>
+        </div>
+
+        <a href="#contacto" class="btn-reservar">Consultar disponibilidad →</a>
+      </div>
+    </div>
+
+    <!-- LA ESMERALDA -->
+    <div class="finca-card fade-up" style="transition-delay: 0.15s;">
+      <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80" alt="Finca La Esmeralda" class="finca-img">
+      <div class="finca-body">
+        <span class="finca-tag">Disponible</span>
+        <h3 class="finca-nombre">La Esmeralda</h3>
+        <p class="finca-desc">Finca de dos pisos rodeada de naturaleza exuberante, con piscina privada, jacuzzi y espacios diseñados para grupos que buscan relax total en el campo.</p>
+
+        <div class="finca-specs">
+          <span class="spec"><span class="spec-icon">🏠</span> 4 habitaciones</span>
+          <span class="spec"><span class="spec-icon">🚿</span> 5 baños</span>
+          <span class="spec"><span class="spec-icon">👥</span> 12–22 personas</span>
+          <span class="spec"><span class="spec-icon">🏊</span> Piscina + Jacuzzi</span>
+        </div>
+
+        <div class="finca-precio">
+          <div class="precio-row">
+            <span class="precio-label">Día no festivo</span>
+            <div style="text-align:right">
+              <span class="precio-val">$75.000 / persona</span>
+              <div class="precio-nota">Mínimo 12 personas · 1 noche</div>
+            </div>
+          </div>
+          <div class="precio-row">
+            <span class="precio-label">Día festivo</span>
+            <div style="text-align:right">
+              <span class="precio-val">$85.000 / persona</span>
+              <div class="precio-nota">Mínimo 12 personas · 2 noches</div>
+            </div>
+          </div>
+          <div class="precio-row">
+            <span class="precio-label">Aseo (tarifa única)</span>
+            <span class="precio-val">$100.000</span>
+          </div>
+          <div class="precio-row">
+            <span class="precio-label">Depósito reembolsable</span>
+            <span class="precio-val">$200.000</span>
+          </div>
+        </div>
+
+        <div class="finca-amenidades">
+          <span class="amenidad-tag">🏊 Piscina privada</span>
+          <span class="amenidad-tag">💦 Jacuzzi</span>
+          <span class="amenidad-tag">🍳 2 cocinas</span>
+          <span class="amenidad-tag">🔥 BBQ</span>
+          <span class="amenidad-tag">🌿 Zonas verdes</span>
+          <span class="amenidad-tag">🎲 Juegos de mesa</span>
+          <span class="amenidad-tag">📶 WiFi</span>
+          <span class="amenidad-tag">📺 TV</span>
+          <span class="amenidad-tag">🅿️ Parqueadero 8 carros</span>
+        </div>
+
+        <a href="#contacto" class="btn-reservar">Consultar disponibilidad →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DISTRIBUCIÓN HABITACIONES -->
+<section class="habitaciones">
+  <div class="habitaciones-inner">
+    <div class="section-label" style="color: var(--dorado);">Distribución de habitaciones</div>
+    <h2 class="section-title">Espacio para todos</h2>
+    <p class="section-sub">Cada finca tiene 4 habitaciones distribuidas en dos pisos para garantizar la comodidad de todos los huéspedes.</p>
+
+    <div class="hab-grid">
+      <div class="hab-card fade-up">
+        <div class="hab-icon">🛏️</div>
+        <div class="hab-nombre">Habitación 1 — Piso 1</div>
+        <div class="hab-cap">Capacidad: <strong style="color:var(--dorado-claro)">6 personas</strong></div>
+      </div>
+      <div class="hab-card fade-up" style="transition-delay:0.1s">
+        <div class="hab-icon">🛏️</div>
+        <div class="hab-nombre">Habitación 2 — Piso 1</div>
+        <div class="hab-cap">Capacidad: <strong style="color:var(--dorado-claro)">6 personas</strong></div>
+      </div>
+      <div class="hab-card fade-up" style="transition-delay:0.2s">
+        <div class="hab-icon">🛏️</div>
+        <div class="hab-nombre">Habitación 3 — Piso 1</div>
+        <div class="hab-cap">Capacidad: <strong style="color:var(--dorado-claro)">2 personas</strong></div>
+      </div>
+      <div class="hab-card fade-up" style="transition-delay:0.3s">
+        <div class="hab-icon">🌟</div>
+        <div class="hab-nombre">Habitación 4 — Piso 2</div>
+        <div class="hab-cap">Capacidad: <strong style="color:var(--dorado-claro)">8 personas</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS DETALLADOS -->
+<section class="precios-section" id="precios">
+  <div class="precios-inner">
+    <div class="section-label">Tarifas 2025</div>
+    <h2 class="section-title">Precios transparentes,<br>sin sorpresas</h2>
+    <p class="section-sub">Tarifas por persona. El depósito se devuelve al entregar la finca en las mismas condiciones.</p>
+
+    <div class="precios-grid">
+      <div class="precio-card fade-up">
+        <div class="precio-header">
+          <h3>Bellavista</h3>
+          <p>La villa familiar con vista al valle</p>
+        </div>
+        <div class="precio-body">
+          <div class="precio-item">
+            <div>
+              <div class="pi-label">Día no festivo</div>
+              <div class="pi-detail">1 noche mínimo · mín. 12 personas</div>
+            </div>
+            <div>
+              <div class="pi-valor">$65.000</div>
+              <div class="pi-pp">por persona</div>
+            </div>
+          </div>
+          <div class="precio-item">
+            <div>
+              <div class="pi-label">Día festivo o puente</div>
+              <div class="pi-detail">2 noches mínimo · mín. 12 personas</div>
+            </div>
+            <div>
+              <div class="pi-valor">$75.000</div>
+              <div class="pi-pp">por persona</div>
+            </div>
+          </div>
+          <div class="precio-item">
+            <div><div class="pi-label">Tarifa de aseo</div></div>
+            <div><div class="pi-valor">$100.000</div></div>
+          </div>
+          <div class="precio-item">
+            <div><div class="pi-label">Depósito (reembolsable)</div></div>
+            <div><div class="pi-valor">$200.000</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="precio-card fade-up" style="transition-delay:0.15s">
+        <div class="precio-header">
+          <h3>La Esmeralda</h3>
+          <p>Naturaleza, piscina y total desconexión</p>
+        </div>
+        <div class="precio-body">
+          <div class="precio-item">
+            <div>
+              <div class="pi-label">Día no festivo</div>
+              <div class="pi-detail">1 noche mínimo · mín. 12 personas</div>
+            </div>
+            <div>
+              <div class="pi-valor">$75.000</div>
+              <div class="pi-pp">por persona</div>
+            </div>
+          </div>
+          <div class="precio-item">
+            <div>
+              <div class="pi-label">Día festivo o puente</div>
+              <div class="pi-detail">2 noches mínimo · mín. 12 personas</div>
+            </div>
+            <div>
+              <div class="pi-valor">$85.000</div>
+              <div class="pi-pp">por persona</div>
+            </div>
+          </div>
+          <div class="precio-item">
+            <div><div class="pi-label">Tarifa de aseo</div></div>
+            <div><div class="pi-valor">$100.000</div></div>
+          </div>
+          <div class="precio-item">
+            <div><div class="pi-label">Depósito (reembolsable)</div></div>
+            <div><div class="pi-valor">$200.000</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notas-precio fade-up">
+      <h4 style="font-family:'Playfair Display',serif; color:var(--verde); margin-bottom:0.75rem; font-size:1rem;">Condiciones importantes</h4>
+      <div class="nota-item"><div class="nota-dot"></div><span>Capacidad mínima de 12 personas y máxima de 22 personas por finca.</span></div>
+      <div class="nota-item"><div class="nota-dot"></div><span>El depósito de $200.000 se devuelve completamente al entregar la finca en las mismas condiciones.</span></div>
+      <div class="nota-item"><div class="nota-dot"></div><span>La tarifa de aseo de $100.000 es única por estadía, no por persona.</span></div>
+      <div class="nota-item"><div class="nota-dot"></div><span>En días festivos y puentes el mínimo es de 2 noches.</span></div>
+      <div class="nota-item"><div class="nota-dot"></div><span>Las fincas se entregan completamente equipadas para cocinar, descansar y disfrutar.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENIDADES -->
+<section class="amenidades" id="amenidades">
+  <div class="section-label">Lo que incluye</div>
+  <h2 class="section-title">Todo lo que necesitas<br>para desconectarte</h2>
+  <p class="section-sub">Ambas fincas están equipadas con todo para que tu grupo disfrute sin preocupaciones.</p>
+
+  <div class="amenidades-grid">
+    <div class="amenidad-card fade-up"><div class="am-icon">🏊</div><div class="am-label">Piscina privada</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.05s"><div class="am-icon">💦</div><div class="am-label">Jacuzzi</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.1s"><div class="am-icon">🍳</div><div class="am-label">Cocina interna</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.15s"><div class="am-icon">🌿</div><div class="am-label">Cocina externa</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.2s"><div class="am-icon">🔥</div><div class="am-label">BBQ / Parrilla</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.25s"><div class="am-icon">🎲</div><div class="am-label">Juegos de mesa</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.3s"><div class="am-icon">📶</div><div class="am-label">WiFi</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.35s"><div class="am-icon">📺</div><div class="am-label">Televisión</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.4s"><div class="am-icon">🅿️</div><div class="am-label">Parqueadero 8 carros</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.45s"><div class="am-icon">🛏️</div><div class="am-label">4 habitaciones</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.5s"><div class="am-icon">🚿</div><div class="am-label">5 baños</div></div>
+    <div class="amenidad-card fade-up" style="transition-delay:.55s"><div class="am-icon">🌳</div><div class="am-label">Zonas verdes</div></div>
+  </div>
+</section>
+
+<!-- COMO LLEGAR -->
+<section class="como-llegar" id="llegar">
+  <div class="llegar-inner">
+    <div>
+      <div class="section-label">Cómo llegar</div>
+      <h2 class="section-title">Fácil de llegar<br>desde Bogotá</h2>
+      <p class="section-sub" style="margin-bottom:2rem;">Ruta sencilla por carretera principal. Te compartimos la ubicación exacta al confirmar tu reserva.</p>
+
+      <div class="ruta-step">
+        <div class="ruta-num">1</div>
+        <div class="ruta-info">
+          <strong>Bogotá → Soacha → La Mesa</strong>
+          <span>Toma la vía hacia La Mesa por el sur de Bogotá · ~1h 15min</span>
+        </div>
+      </div>
+      <div class="ruta-step">
+        <div class="ruta-num">2</div>
+        <div class="ruta-info">
+          <strong>La Mesa → Anapoima</strong>
+          <span>Continúa por la vía principal hacia Anapoima · ~30 min</span>
+        </div>
+      </div>
+      <div class="ruta-step">
+        <div class="ruta-num">3</div>
+        <div class="ruta-info">
+          <strong>Llegada a la finca</strong>
+          <span>Al confirmar tu reserva te enviamos la ubicación exacta por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mapa-placeholder">
+      <div class="mapa-icon">📍</div>
+      <div class="mapa-text">Anapoima, Cundinamarca, Colombia</div>
+      <a href="https://maps.google.com/?q=Anapoima+Cundinamarca+Colombia" target="_blank" class="mapa-link">Ver en Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto-section" id="contacto">
+  <div class="section-label">Reservas y consultas</div>
+  <h2 class="section-title">¿Listo para escaparte<br>del frío bogotano?</h2>
+  <p class="section-sub">Escríbenos o llama directamente. Te respondemos rápido para separar tu fecha antes de que se acabe.</p>
+
+  <div class="contacto-grid">
+    <div class="contacto-info">
+      <h3>Contáctanos directamente</h3>
+      <p>Disponibles de lunes a domingo para atender tu consulta. La forma más rápida es por WhatsApp.</p>
+
+      <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20información%20sobre%20las%20fincas%20en%20Anapoima" target="_blank" class="contacto-metodo">
+        <div class="cm-icon">💬</div>
+        <div>
+          <span class="cm-label">WhatsApp (más rápido)</span>
+          <span class="cm-valor">Escríbenos ahora</span>
+        </div>
+      </a>
+
+      <a href="tel:+573000000000" class="contacto-metodo">
+        <div class="cm-icon">📞</div>
+        <div>
+          <span class="cm-label">Llamada directa</span>
+          <span class="cm-valor">+57 300 000 0000</span>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank" class="contacto-metodo">
+        <div class="cm-icon">📸</div>
+        <div>
+          <span class="cm-label">Instagram</span>
+          <span class="cm-valor">@fincasanapoima</span>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/" target="_blank" class="contacto-metodo">
+        <div class="cm-icon">📘</div>
+        <div>
+          <span class="cm-label">Facebook</span>
+          <span class="cm-valor">Fincas Campestres Anapoima</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="form-reserva fade-up">
+      <h3>Solicitar disponibilidad</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Teléfono</label>
+          <input type="tel" placeholder="+57 300...">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Finca de interés</label>
+          <select>
+            <option value="">Seleccionar...</option>
+            <option>Bellavista</option>
+            <option>La Esmeralda</option>
+            <option>Cualquiera disponible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Número de personas</label>
+          <input type="number" min="12" max="22" placeholder="Mín. 12">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fecha de llegada</label>
+          <input type="date">
+        </div>
+        <div class="form-group">
+          <label>Fecha de salida</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mensaje (opcional)</label>
+        <textarea placeholder="¿Alguna pregunta o solicitud especial?"></textarea>
+      </div>
+      <button class="btn-form" onclick="enviarWhatsApp()">Enviar solicitud por WhatsApp ✓</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Fincas Anapoima</div>
+  <div class="footer-sub">Bellavista · La Esmeralda · Cundinamarca, Colombia</div>
+  <ul class="footer-links">
+    <li><a href="#fincas">Las fincas</a></li>
+    <li><a href="#precios">Tarifas</a></li>
+    <li><a href="#amenidades">Amenidades</a></li>
+    <li><a href="#llegar">Cómo llegar</a></li>
+    <li><a href="#contacto">Reservar</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Fincas Campestres Anapoima · Todos los derechos reservados</div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/573000000000?text=Hola!%20Vi%20la%20página%20y%20quiero%20información%20sobre%20las%20fincas%20en%20Anapoima" class="wa-btn" target="_blank" title="WhatsApp">💬</a>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  function enviarWhatsApp() {
+    const nombre = document.querySelector('input[placeholder="Tu nombre"]').value || 'Sin nombre';
+    const tel = document.querySelector('input[placeholder="+57 300..."]').value || '';
+    const finca = document.querySelector('select').value || 'Sin especificar';
+    const personas = document.querySelector('input[type="number"]').value || '';
+    const llegada = document.querySelectorAll('input[type="date"]')[0].value || '';
+    const salida = document.querySelectorAll('input[type="date"]')[1].value || '';
+    const msg = document.querySelector('textarea').value || '';
+
+    const texto = `Hola! Me interesa reservar una finca en Anapoima 🌿\n\n*Nombre:* ${nombre}\n*Finca:* ${finca}\n*Personas:* ${personas}\n*Llegada:* ${llegada}\n*Salida:* ${salida}\n*Mensaje:* ${msg}`;
+    window.open(`https://wa.me/573000000000?text=${encodeURIComponent(texto)}`, '_blank');
+  }
+</script>
+</body>
+</html>
