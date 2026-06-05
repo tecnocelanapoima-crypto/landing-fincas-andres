@@ -19,7 +19,7 @@ body{font-family:'DM Sans',sans-serif;background:#0a0a0a;color:#f0f0f0;overflow-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(26,77,46,0.95);backdrop-filter:blur(12px);transition:padding 0.3s}
 nav.scrolled{padding:0.7rem 3rem;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--dorado-claro);letter-spacing:0.05em}
+.nav-logo{display:flex;align-items:center}.nav-logo img{height:42px;object-fit:contain}
 .nav-links{display:flex;gap:1.75rem;list-style:none}
 .nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.85rem;font-weight:400;transition:color 0.2s}
 .nav-links a:hover{color:var(--dorado-claro)}
@@ -239,13 +239,13 @@ nav.scrolled{padding:0.7rem 3rem;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
 
 <!-- NAV -->
 <nav id="navbar">
-  <div class="nav-logo">Fincas Anapoima</div>
+  <div class="nav-logo"><img src="logo.jpg" alt="Casas Campestres Anapoima" style="height:42px;object-fit:contain;border-radius:4px"></div>
   <ul class="nav-links">
     <li><a href="#fincas">Fincas</a></li>
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#precios">Tarifas</a></li>
     <li><a href="#llegar">Cómo llegar</a></li>
-    <li><a href="https://wa.me/573124837718?text=Hola!%20Quiero%20información%20sobre%20las%20fincas%20en%20Anapoima%20🌿" target="_blank" class="nav-cta">Reservar →</a></li>
+    <li><a href="https://wa.me/573241253090?text=Hola!%20Quiero%20información%20sobre%20las%20fincas%20en%20Anapoima%20🌿" target="_blank" class="nav-cta">Reservar →</a></li>
   </ul>
 </nav>
 
@@ -257,11 +257,11 @@ nav.scrolled{padding:0.7rem 3rem;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
     </video>
   </div>
   <div class="hero-content">
-    <span class="hero-badge">🌿 Anapoima, Cundinamarca · A 2h de Bogotá</span>
+    <span class="hero-badge">🌿 Casas Campestres Anapoima · A 2h de Bogotá</span>
     <h1>Escápate del frío<br>y vive el <em>calor<br>del campo</em></h1>
     <p class="hero-sub">Piscina privada, jacuzzi, BBQ y naturaleza pura. El plan perfecto para tu grupo de amigos o familia en Anapoima.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/573124837718?text=Hola!%20Vi%20la%20landing%20y%20quiero%20reservar%20una%20finca%20en%20Anapoima%20🌿" target="_blank" class="btn-wa">💬 Reservar por WhatsApp</a>
+      <a href="https://wa.me/573241253090?text=Hola!%20Vi%20la%20landing%20y%20quiero%20reservar%20una%20finca%20en%20Anapoima%20🌿" target="_blank" class="btn-wa">💬 Reservar por WhatsApp</a>
       <a href="#fincas" class="btn-ghost">Ver las fincas</a>
     </div>
     <div class="hero-stats">
@@ -341,7 +341,7 @@ nav.scrolled{padding:0.7rem 3rem;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
           <span class="tag">📶 WiFi</span><span class="tag">📺 TV</span>
           <span class="tag">🎲 Juegos de mesa</span><span class="tag">🌿 Zonas verdes</span>
         </div>
-        <a href="https://wa.me/573124837718?text=Hola!%20Me%20interesa%20reservar%20la%20finca%20*Bellavista*%20en%20Anapoima%20🌿%20%C2%BFTiene%20disponibilidad?" target="_blank" class="btn-reservar">💬 Consultar disponibilidad Bellavista</a>
+        <a href="https://wa.me/573241253090?text=Hola!%20Me%20interesa%20reservar%20la%20finca%20*Bellavista*%20en%20Anapoima%20🌿%20%C2%BFTiene%20disponibilidad?" target="_blank" class="btn-reservar">💬 Consultar disponibilidad Bellavista</a>
       </div>
     </div>
 
@@ -379,7 +379,7 @@ nav.scrolled{padding:0.7rem 3rem;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
           <span class="tag">📶 WiFi</span><span class="tag">📺 TV</span>
           <span class="tag">🎲 Juegos de mesa</span><span class="tag">🌿 Zonas verdes</span>
         </div>
-        <a href="https://wa.me/573124837718?text=Hola!%20Me%20interesa%20reservar%20la%20finca%20*La%20Esmeralda*%20en%20Anapoima%20🌿%20%C2%BFTiene%20disponibilidad?" target="_blank" class="btn-reservar">💬 Consultar disponibilidad La Esmeralda</a>
+        <a href="https://wa.me/573241253090?text=Hola!%20Me%20interesa%20reservar%20la%20finca%20*La%20Esmeralda*%20en%20Anapoima%20🌿%20%C2%BFTiene%20disponibilidad?" target="_blank" class="btn-reservar">💬 Consultar disponibilidad La Esmeralda</a>
       </div>
     </div>
   </div>
@@ -545,15 +545,15 @@ nav.scrolled{padding:0.7rem 3rem;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
   <h2>¿Tu grupo ya está listo<br>para el <em>siguiente puente</em>?</h2>
   <p>Escríbenos ahora por WhatsApp y separamos tu fecha antes de que se acabe. Respuesta inmediata.</p>
   <div class="cta-btns">
-    <a href="https://wa.me/573124837718?text=Hola!%20Quiero%20reservar%20una%20finca%20en%20Anapoima%20🌿%20%C2%BFCuál%20tiene%20disponibilidad%20para%20mi%20grupo?" target="_blank" class="btn-cta-wa">💬 Escribir por WhatsApp ahora</a>
+    <a href="https://wa.me/573241253090?text=Hola!%20Quiero%20reservar%20una%20finca%20en%20Anapoima%20🌿%20%C2%BFCuál%20tiene%20disponibilidad%20para%20mi%20grupo?" target="_blank" class="btn-cta-wa">💬 Escribir por WhatsApp ahora</a>
   </div>
-  <div class="cta-nota">📞 También puedes llamar: 312 483 7718</div>
+  <div class="cta-nota">📞 También puedes llamar: 324 125 3090 · 320 850 2814</div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-logo">Fincas Anapoima</div>
-  <div class="footer-sub">Bellavista · La Esmeralda · Cundinamarca, Colombia</div>
+  <div class="footer-logo">Casas Campestres Anapoima</div>
+  <div class="footer-sub">Bellavista · La Esmeralda · Anapoima, Cundinamarca</div>
   <ul class="footer-links">
     <li><a href="#fincas">Las fincas</a></li>
     <li><a href="#galeria">Galería</a></li>
@@ -565,8 +565,8 @@ nav.scrolled{padding:0.7rem 3rem;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
 
 <!-- WHATSAPP FLOTANTE -->
 <div class="wa-float">
-  <div class="wa-bubble">¿Listo para reservar?<br><strong>Escríbenos ahora 👇</strong></div>
-  <a href="https://wa.me/573124837718?text=Hola!%20Vi%20la%20página%20y%20quiero%20información%20sobre%20las%20fincas%20en%20Anapoima%20🌿" target="_blank" class="wa-btn" title="WhatsApp">💬</a>
+  <div class="wa-bubble">📞 324 125 3090<br>📞 320 850 2814<br><strong>¡Escríbenos! 👇</strong></div>
+  <a href="https://wa.me/573241253090?text=Hola!%20Vi%20la%20página%20y%20quiero%20información%20sobre%20las%20fincas%20en%20Anapoima%20🌿" target="_blank" class="wa-btn" title="WhatsApp">💬</a>
 </div>
 
 <!-- LIGHTBOX -->
